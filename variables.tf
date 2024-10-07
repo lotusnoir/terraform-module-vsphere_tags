@@ -1,7 +1,6 @@
 variable "tag_category_name" {
   type        = string
   description = "The name of the vSphere tag category."
-  nullable    = false
 
   validation {
     condition     = length(var.tag_category_name) > 0
@@ -13,14 +12,12 @@ variable "tag_category_description" {
   type        = string
   description = "The description of the vSphere tag category."
   default     = null
-  nullable    = true
 }
 
 variable "tag_category_cardinality" {
   type        = string
   description = "The number of tags that can be assigned from this category to a single object at once."
   default     = "MULTIPLE"
-  nullable    = false
 
   validation {
     condition     = contains(["SINGLE", "MULTIPLE"], var.tag_category_cardinality)
@@ -50,7 +47,6 @@ variable "tag_category_associable_types" {
     "VirtualApp",
     "VirtualMachine",
   ]
-  nullable = false
 
   validation {
     condition     = length(var.tag_category_associable_types) > 0
@@ -87,13 +83,11 @@ variable "create_tag_category" {
   type        = bool
   description = "If true, a new vSphere tag category will be created."
   default     = true
-  nullable    = false
 }
 
 variable "tags" {
   type        = map(string)
   description = "Map of strings defining vSphere tag names and descriptions."
-  nullable    = false
 
   /*
   example = {
@@ -112,5 +106,4 @@ variable "create_tags" {
   type        = bool
   description = "If true, new vSphere tags will be created for each entry."
   default     = true
-  nullable    = false
 }
