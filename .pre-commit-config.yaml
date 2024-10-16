@@ -49,16 +49,8 @@ repos:
       - id: terraform_tflint
       - id: terraform_trivy
       - id: terraform_checkov
-      - id: terragrunt_validate
       - id: terraform_docs
       - id: tfupdate
-
-  # terrascan
-  - repo: https://github.com/accurics/terrascan
-    rev: v1.19.9
-    hooks:
-      - id: terraform-pre-commit
-        args: ["-i terraform"]
 
   # Versioning: Commit Messages & Changelog
   #- repo: https://github.com/commitizen-tools/commitizen
